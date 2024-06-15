@@ -1,15 +1,17 @@
 name: "MetaCall Distributable Windows Release"
 
 on:
-  push:
-    tags:
-      - 'v*.*.*'
+  repository_dispatch:
+    types: [test-trigger]
 
 jobs:
   build:
     runs-on: windows-2019
     steps:
       - uses: actions/checkout@v2
+        with:
+          ref: ${{ github.event.client_payload.tag }}  
+          # Include tag name from payload
       - uses: ilammy/msvc-dev-cmd@v1
         with:
           arch: amd64
