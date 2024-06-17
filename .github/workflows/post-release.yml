@@ -13,7 +13,7 @@ jobs:
       steps:
         - uses: convictional/trigger-workflow-and-wait@v1.6.1
           with:
-            owner: metacall
+            owner: sahiljadhav02
             repo: install
             github_token: ${{ secrets.G_PERSONAL_ACCESS_TOKEN }}
             workflow_file_name: test-windows.yml
