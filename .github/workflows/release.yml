@@ -24,6 +24,7 @@ jobs:
         run: .\test.bat
       - name: Release
         uses: softprops/action-gh-release@v1
+        if: startsWith(github.ref, 'refs/tags/')
         with:
           files: metacall-tarball-win-x64.zip
           fail_on_unmatched_files: true
